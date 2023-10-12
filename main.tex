@@ -1,0 +1,106 @@
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{comment}
+\usepackage{mathtools}
+
+\title{Appunti SFB 2023/2024}
+\author{Umberto Loria}
+\date{Ottobre 2023}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\tableofcontents{}
+\newpage
+
+\section{Alfabeti e linguaggi}
+
+Un \textit{alfabeto} \mbox{$\Sigma$} è un insieme \underline{finito} di elementi (lettere, simbolio caratteri).
+\\
+Sia \mbox{$\Sigma=\{\sigma_0 ... \sigma_k\}$} alfabeto di \begin{math}k\end{math} simboli con cardinalità \mbox{$|\Sigma|=k$}.
+\\
+\\
+Esempi:
+
+\mbox{$\Sigma=\{a, b, ..., z\}$} alfabeto delle lettere romane minuscole
+
+\mbox{$\Sigma=\{0, 1, ..., 9\}$} alfabeto delle cifre arabe
+
+\mbox{$\Sigma=\{0, 1\}$} alfabeto binario
+\\
+\\
+Una \textit{parola} (o stringa) su un alfabeto è una sequenza (finita) di simboli dell'alfabeto.
+Esempio: \mbox{$\Sigma = \{a, c, s\}, w = casa$} parola su \mbox{$\Sigma$}
+\\
+\\
+Un \textit{linguaggio} formale è un insieme di parole su un alfabeto.
+\\
+Esempio:
+
+Insieme di tutti i programmi sintatticamente validi scritti in C++
+
+Insieme di nomi di variabili in Java
+\\
+\\
+La \textit{cardinalità di un linguaggio} finito è il numero di parole che esso contiene.
+Esempi:
+
+\mbox{$L_1=\{a, b, ab\}, |L_1|=3$}
+
+\mbox{$L_2=\{aba, abb\}, |L_2|=2$}
+\\
+\\
+Un linguaggio è \textit{finito} se contiene un numero finito di parole.
+\\
+Un linguaggio è \textit{non finito} se contiene un numero infinito di parole.
+
+
+\section{Parole}
+
+La lungheza di una parola \mbox{$w$} è definita con \mbox{$|w|$}. Esempio: \mbox{$|ab|=2$}.
+\\
+\\
+Il \textit{numero di occorrenze} del simbolo \mbox{$\sigma$} in una parola \mbox{$w$} è definito con \mbox{$|w|_\sigma$}. Esempio: \mbox{$|aab|_a=2$}.
+
+
+\subsection{Uguaglianza tra parole}
+
+Sia
+\begin{math}
+a = a_1...a_k
+\end{math}
+e
+\begin{math}
+b = b_1...b_h
+\end{math}
+con
+\begin{math}
+k, h \in \mathbf{N},
+a_1, ..., a_k, b_1, ..., b_k \in \Sigma
+\end{math}.
+\\
+Allora:
+\\
+\begin{math}
+a=b
+\Leftrightarrow
+\begin{cases}
+k = h \\
+\forall i \in \{1, ..., k\} : a_i=b_i
+\end{cases}
+\end{math}
+
+
+\subsection{Concatenazione di parole}
+
+...
+
+
+\section*{Conclusioni}
+
+...
+
+\end{document}
