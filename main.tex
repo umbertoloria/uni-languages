@@ -15,7 +15,6 @@
 
 \tableofcontents{}
 \newpage
-
 \section{Alfabeti e linguaggi}
 
 Un \textit{alfabeto} \mbox{$\Sigma$} è un insieme \underline{finito} di elementi (lettere, simbolio caratteri).
@@ -90,7 +89,7 @@ Allora:
 \\
 \begin{math}
 a=b
-\Leftrightarrow
+\overset{\text{def}}{\Leftrightarrow}
 \begin{cases}
 k = h \\
 \forall i \in \{1, ..., k\} : a_i=b_i
@@ -98,7 +97,6 @@ k = h \\
 \end{math}
 
 \newpage
-
 \subsection{Concatenazione di parole}
 
 Sia
@@ -177,9 +175,119 @@ allora
 
 \subsection{Prefissi, suffissi e sottostringhe}
 
-...
+Sia \mbox{$x = uyv$} con \mbox{$u, y, z \in \Sigma^*$}, si dicono:
+
+\mbox{$u$} prefisso di \mbox{$x$}
+
+\mbox{$y$} sottostringa di \mbox{$x$}
+
+\mbox{$v$} suffisso di \mbox{$x$}
+\\
+Una \textit{sottostringa} può essere chiamata anche fattore.
+\\
+Si noti che vangolo anche le seguenti.
+
+\mbox{$x$} prefisso di \mbox{$x$}
+
+\mbox{$x$} sottostringa di \mbox{$x$}
+
+\mbox{$x$} suffisso di \mbox{$x$}
 
 
+\subsubsection{Prefissi propri, suffissi propri e sottostringhe proprie}
+
+Siano \mbox{$w, x \in \Sigma^*$}
+\\
+allora:
+\\
+\\
+\begin{math}
+w \text{ prefisso proprio di } x
+\overset{\text{def}}{\Leftrightarrow}
+\begin{cases}
+w \text{ prefisso di } x \\
+w \neq x
+\end{cases}
+\end{math}
+\\
+\\
+\\
+\begin{math}
+w \text{ sottostringa propria di } x
+\overset{\text{def}}{\Leftrightarrow}
+\begin{cases}
+w \text{ sottostringa di } x \\
+w \neq x
+\end{cases}
+\end{math}
+\\
+\\
+\\
+\begin{math}
+w \text{ suffisso proprio di } x
+\overset{\text{def}}{\Leftrightarrow}
+\begin{cases}
+w \text{ suffisso di } x \\
+w \neq x
+\end{cases}
+\end{math}
+
+
+
+\subsection{Inversa di una parola}
+
+Sia \mbox{$w = w_1...w_k$} con \mbox{$k \in \mathbf{N}$}.
+\\
+La parola inversa è \mbox{$w^R = w_k...w_1$}
+\\
+\\
+Definizione ricorsiva:
+\\
+Passo base:
+\\
+\mbox{$\epsilon^R = \epsilon$}
+\\
+Passo ricorsivo:
+\\
+Sia \mbox{$w = x \sigma$} con \mbox{$x \in \Sigma^*, \sigma \in \Sigma$}
+\\
+\mbox{$w^R = (x \sigma)^R = \sigma w^R$}
+\\
+\\
+La inversione di una parola è talvolta chiamata \textit{riflessione}.
+\\
+\\
+Si noti che:
+\\
+\mbox{$ (x^R)^R = x $}
+\\
+Dimostrazione:
+\\
+\mbox{$ (x^R)^R = ((x_1...x_k)^R)^R = (x_k...x_1)^R = x_1...x_k = x $}
+\\
+\\
+Si noti che:
+\\
+\mbox{$ (xy)^R = y^R x^R $}
+\\
+Dimostrazione:
+\\
+\mbox{$ (xy)^R = (x_1...x_k y_1...y_h)^R = y_h...y_1 x_k...x_1 $}
+
+
+
+\subsection{Precedenze delle operazioni}
+
+L'elevamento a potenza di una parola ha precedenza rispetto alla concatenazione.
+\\
+\mbox{$ (ab)^2 = abab \neq abb = ab^2 $}
+\\
+L'inversione di una parola ha precedenza rispetto alla concatenazione.
+\\
+\mbox{$ (ab)^R = ba \neq ab = ab^R $}
+
+
+\newpage
 \section*{Conclusioni}
 
 ...
