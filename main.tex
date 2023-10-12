@@ -60,7 +60,11 @@ Un linguaggio è \textit{non finito} se contiene un numero infinito di parole.
 
 \section{Parole}
 
-La lungheza di una parola \mbox{$w$} è definita con \mbox{$|w|$}. Esempio: \mbox{$|ab|=2$}.
+La lunghezza di una parola \mbox{$w$} è definita con \mbox{$|w|$}. Esempio: \mbox{$|ab| = 2$}.
+\\
+\\
+La parola vuota si indica con \mbox{$\epsilon$}. Essa è l'elemento neutro dell'insieme delle parole ed è l'unica
+parola con lunghezza pari a \mbox{$0$}. Quindi vale \mbox{$|\epsilon|=0$}.
 \\
 \\
 Il \textit{numero di occorrenze} del simbolo \mbox{$\sigma$} in una parola \mbox{$w$} è definito con \mbox{$|w|_\sigma$}. Esempio: \mbox{$|aab|_a=2$}.
@@ -79,7 +83,7 @@ b = b_1...b_h
 con
 \begin{math}
 k, h \in \mathbf{N},
-a_1, ..., a_k, b_1, ..., b_k \in \Sigma
+a_1, ..., a_k, b_1, ..., b_h \in \Sigma
 \end{math}.
 \\
 Allora:
@@ -93,8 +97,85 @@ k = h \\
 \end{cases}
 \end{math}
 
+\newpage
 
 \subsection{Concatenazione di parole}
+
+Sia
+\begin{math}
+a = a_1...a_k
+\end{math}
+e
+\begin{math}
+b = b_1...b_h
+\end{math}
+con
+\begin{math}
+k, h \in \mathbf{N},
+a_1, ..., a_k, b_1, ..., b_h \in \Sigma
+\end{math}.
+\\
+Allora:
+\\
+\begin{math}
+ab = a_1...a_kb_1...b_h
+\end{math}
+\\
+Questa operazione si chiama concatelazione (o giustapposizione) di parole.
+\\
+\\
+Si noti che \mbox{$\epsilon w = w \epsilon = w$} e che \mbox{$\epsilon \epsilon = \epsilon$}.
+\\
+\\
+L'operazione di concatenazione non gode della proprietà commutativa, infatti con \mbox{$a=anna, b=maria$} si ha
+che \mbox{$ab = annamaria \neq mariaanna = ba$}.
+
+
+\subsubsection{Proprietà associativa della concatenazione}
+
+L'operazione di concatenazione gode invece della proprietà associativa.
+Siano \mbox{$a=a_1...a_m, b=b_1...b_n, c=c_1...c_l$} con
+\mbox{$a_1, ..., a_m, b_1, ..., b_n, c_1, ..., c_l \in \Sigma, m, n, l \in \mathbf{N}$}
+\\
+Vale che:
+\\
+\mbox{$(ab)c = (a_1...a_mb_1...b_n)c_1...c_l = a_1...a_mb_1...b_nc_1...c_l = a_1...a_m(b_1...b_nc_1...c_l) = a(bc)$}
+
+
+\subsubsection{Stabilità della lunghezza di parole rispetto alla concatenazione}
+
+Siano \mbox{$a=a_1...a_m, b=b_1...b_n$} con
+\mbox{$a_1, ..., a_m, b_1, ..., b_n \in \Sigma, m, n \in \mathbf{N}$}
+\\
+Vale che:
+\\
+\mbox{$|ab| = |a| + |b| = m + n$}
+\\
+\\
+Dimostrazione diretta:
+\\
+\mbox{$|ab| = |a_1...a_mb_1...b_n| = |a_1...a_m| + |b_1...b_n| = m + n = |a| + |b|$}
+\\
+\\
+Dimostrazione induttiva:
+\\
+Passo base:
+
+\mbox{$|ab|=|a_1...a_mb_1...b_n|$}.
+\\
+Passo induttivo:
+
+Sia
+\mbox{$|wv|=|w|+|v|$}
+con
+\mbox{$w, v \in \Sigma^*, a, b \in \Sigma$}
+
+allora
+
+\mbox{$|wavb| = |wvab| = |wv| + 2 = |w| + |v| + 2 = |w| + |a| + |v| + |b| = |wa| + |vb|$}
+
+
+\subsection{Prefissi, suffissi e sottostringhe}
 
 ...
 
