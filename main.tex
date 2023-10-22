@@ -380,6 +380,7 @@ accetti soltanto le parole di lunghezza dispari.
 
 
 \subsubsection{Linguaggio di un DFA}
+
 Dato un DFA \mbox{$A = (Q, \Sigma, \delta, q_0, F)$}, si definisce il linguaggio riconosciuto da \mbox{$A$}:
 \\
 
@@ -413,6 +414,7 @@ Quindi è possibile riscrivere la definizione di linguaggio riconosciuto come se
 
 
 \subsubsection{Esempio di applicazione di funzione di transizione estesa}
+
 Prendendo in considerazione l'automa \mbox{$A_1$} in \textbf{3.1.1} è possibile verificare quanto segue.
 \\
 \\
@@ -435,6 +437,7 @@ Prendendo in considerazione l'automa \mbox{$A_1$} in \textbf{3.1.1} è possibile
 
 
 \subsubsection{Estensione di una funzione}
+
 Siano \mbox{$f \colon B \to T, g \colon A \to T$} due funzioni con \mbox{$ B \subseteq A $}.
 \\
 \mbox{$ g \text{ estensione di } f \overset{\text{def}}{\Leftrightarrow} g(x) = f(x), \forall x \in B $}
@@ -455,9 +458,48 @@ transizione \mbox{$ \delta $} dato che \mbox{$ \Sigma \subseteq \Sigma^* $}
 
 
 
+\subsubsection{Altri esempi di DFA}
+
+Si considerino i seguenti automi, rispettivamente \mbox{$A_1$} e \mbox{$A_2$}.
+\\
+\begin{tikzpicture}
+\node[state, initial] (q1) {$q_1$};
+\node[state, accepting, right of=q1] (q2) {$q_2$};
+\draw
+(q1) edge[loop above]       node{0} (q1)
+(q1) edge[bend left, above] node{1} (q2)
+(q2) edge[loop above]       node{1} (q2)
+(q2) edge[bend left, below] node{0} (q1);
+\end{tikzpicture}
+\begin{tikzpicture}
+\node[state, initial, accepting] (q1) {$q_1$};
+\node[state, right of=q1] (q2) {$q_2$};
+\draw
+(q1) edge[loop above]       node{0} (q1)
+(q1) edge[bend left, above] node{1} (q2)
+(q2) edge[loop above]       node{1} (q2)
+(q2) edge[bend left, below] node{0} (q1);
+\end{tikzpicture}
+\\
+\\
+Dopo una osservazione, è possibile riconscere che \mbox{$ L(A_1) = \{ w1 | w \in \{ 0, 1 \}* \} $}.
+Inoltre, il linguaggio riconosciuto da \mbox{$A_2$} sembra accettare tutte le parole possibili tranne
+quelle accettate da \mbox{$A_1$}.
+\\
+Infatti, \mbox{$ L(A_2) = \{ 0, 1 \}^* / \{ w1 | w \in \{ 0, 1 \}* \} = \{ 0, 1 \}^* / L(A_1) $} è il
+complemento del linguaggio \mbox{$L(A_1)$}.
+\\
+Si noti che l'unica differenza nella definizioni di \mbox{$A_1$} e \mbox{$A_2$} è che i rispettivi
+insiemi di stati finali sono tra loro complementari. In seguito saranno forniti maggiori dettagli sulla
+relazione tra un DFA e il suo DFA complementare.
+
+
+
 \newpage
 \section*{Conclusioni}
 
 ...
+
+
 
 \end{document}
