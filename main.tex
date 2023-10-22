@@ -3,6 +3,17 @@
 \usepackage{comment}
 \usepackage{mathtools}
 
+% For diagrams
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, arrows}
+\tikzset{
+    ->, % makes the edges directed
+    >=stealth, % makes the arrow heads bold
+    node distance=3cm, % specifies the minimum distance between two nodes. Change if necessary.
+    every state/.style={thick, fill=gray!10}, % sets the properties for each ’state’ node
+    initial text=$ $, % sets the text that appears on the start arrow
+}
+
 \title{Appunti SFB 2023/2024}
 \author{Umberto Loria}
 \date{Ottobre 2023}
@@ -325,11 +336,102 @@ Un \textit{automa finito deterministico} è una quintupla \mbox{$(Q, \Sigma, \de
 \\
 \\
 Considerato che la definizione di un DFA è pedissequa e di difficile lettura, si presentano modalità alternative di definizione di un DFA:
-
 \begin{itemize}
     \item diagramma di stato (o diagramma di transizione)
     \item tabella di transizione, cioè una rappresentazione tabellare della funzione di transizione \mbox{$\delta$}, insieme al'indicazione di stati iniziale e stati finali (indicando la riga dello stato iniziale con una freccia e le righe degli stati finali con delle stelline)
 \end{itemize}
+
+
+
+\newpage
+\subsubsection{Esempio di DFA}
+
+Il DFA \mbox{$A_1$}\ può essere rappresentato con la seguente definizione.
+\\
+\\
+\mbox{$A_1 = (Q, \Sigma, \delta, q_1, F)$} con:
+
+\mbox{$Q = \{ q_1, q_2 \}$}
+
+\mbox{$\Sigma = \{ a \}$}
+
+\mbox{$\delta(q_1, a) = q_2$}, \mbox{$\delta(q_2, a) = q_1$}
+
+\mbox{$F = \{ q_2 \}$}
+\\
+\\
+Oppure con il seguente diagramma di stati.
+\\
+\\
+\begin{tikzpicture}
+\node[state, initial] (q1) {$q_1$};
+\node[state, accepting, right of=q1] (q2) {$q_2$};
+\draw
+(q1) edge[bend left, above] node{a} (q2)
+(q2) edge[bend left, below] node{a} (q1);
+\end{tikzpicture}
+\\
+Da un primo sguardo al diagramma possiamo notare che la parola "\mbox{$a$}" viene accettata da \mbox{$A_1$}.
+Invece la parola "\mbox{$aa$}" non è altrettanto fortunata. Altre parole accettate sono "\mbox{$aaa$}",
+"\mbox{$aaaaa$}", "\mbox{$aaaaaaa$}".
+Altre parole non accettate sono: \mbox{$\epsilon$}, "\mbox{$aaaa$}", "\mbox{$aaaaaa$}". Sembra che questo automa
+accetti soltanto le parole di lunghezza dispari.
+
+
+
+\subsubsection{Linguaggio di un DFA}
+Dato un DFA \mbox{$A = (Q, \Sigma, \delta, q_0, F)$}, si definisce il linguaggio riconosciuto da \mbox{$A$}:
+\\
+
+\mbox{$L(A) = \{ w | A \text{ accetta } w \}$}
+\\
+\\
+Per esprimere in modo più formale "\mbox{$A \text{ accetta } w$}" si introduce il concetto di
+\textit{funzione di transizione estesa} \mbox{$\hat\delta \colon Q \times \Sigma^* \to Q$}.
+\\
+\\
+Passo base
+\\
+\mbox{$\hat\delta(q, \epsilon) = q, \forall q \in Q$}
+\\
+\\
+Passo ricorsivo \mbox{$\forall q \in Q, w \in \Sigma^*, \alpha \in \Sigma$}
+\\
+\mbox{$\hat\delta(q, w\alpha) = \delta(\hat\delta(q, w), \alpha)$}
+\\
+\\
+La \textit{funzione di transizione estesa} \mbox{$\hat\delta$} (chiamata "\textit{delta cappello}") fornisce
+lo stato finale del relativo DFA alla fine della computazione dati stringa in input e stato di partenza.
+Se viene usata per seguire una computazione di un automa a partire dal suo stato iniziale e una parola in
+input, e si ottiene come risultato uno stato finale, allora la parola in input è accettata da tale automa.
+\\
+\\
+Quindi è possibile riscrivere la definizione di linguaggio riconosciuto come segue.
+\\
+\mbox{$L(A) = \{ w | \hat\delta(q_0, w) \in F \}$}.
+
+
+
+
+\subsubsection{Esempio di applicazione di funzione di transizione estesa}
+Prendendo in considerazione l'automa \mbox{$A_1$} in \textbf{3.1.1} è possibile verificare quanto segue.
+\\
+\\
+\mbox{$ \hat\delta(q_1, \epsilon) = q_1 \not\in F $}
+\\
+\mbox{$ \hat\delta(q_1, a) = \delta( \hat\delta(q_1, \epsilon) , a) = \delta( q_1 , a) = q_2 \in F $}
+\\
+\mbox{$ \hat\delta(q_1, aa) = \delta( \hat\delta(q_1, a) , a) = \delta( q_2 , a) = q_1 \not\in F $}
+\\
+\mbox{$ \hat\delta(q_1, aaa) = \delta( \hat\delta(q_1, aa) , a) = \delta( q_1 , a) = q_2 \in F $}
+\\
+\mbox{$ \hat\delta(q_1, aaaa) = \delta( \hat\delta(q_1, aaa) , a) = \delta( q_2 , a) = q_1 \not\in F $}
+\\
+\mbox{$ \hat\delta(q_1, aaaaa) = \delta( \hat\delta(q_1, aaaa) , a) = \delta( q_1 , a) = q_2 \in F $}
+\\
+\mbox{$ \hat\delta(q_1, aaaaaa) = \delta( \hat\delta(q_1, aaaaa) , a) = \delta( q_2 , a) = q_1 \not\in F $}
+\\
+\mbox{$ \hat\delta(q_1, aaaaaaa) = \delta( \hat\delta(q_1, aaaaaa) , a) = \delta( q_1 , a) = q_2 \in F $}
 
 
 
