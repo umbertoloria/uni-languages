@@ -233,7 +233,6 @@ w \neq x
 \end{math}
 
 
-
 \subsection{Inversa di una parola}
 
 Sia \mbox{$w = w_1...w_k$} con \mbox{$k \in \mathbf{N}$}.
@@ -285,6 +284,33 @@ L'elevamento a potenza di una parola ha precedenza rispetto alla concatenazione.
 L'inversione di una parola ha precedenza rispetto alla concatenazione.
 \\
 \mbox{$ (ab)^R = ba \neq ab = ab^R $}
+
+
+\newpage
+\section{Automi finiti}
+
+La teoria degli automi nasce negli anni '30 grazie al lavoro di matematici tra cui Turing, Church, Kleene
+con l'obiettivo di fornire una formalizzazione matematica alla nozione di algoritmo. Parallelamente, negli
+anni '40 il neurofisiologo McCulloch e il matematico Pitts cercarono di dare formalizzazione matematica del
+funzionamento di cellule nervose, neuroni o reti di neuroni. La prima esposizione chiara e abbastanza
+esauriente della teoria degli automi finiti fu pubblicata da Rabin e Scott nel 1959.
+\\
+\\
+Un automa finito è un modello di computazione dotato di una quantità di memoria estremamente limitata. Lo
+si può immaginare come un sistema avente un numero finito di stati possibili e dotato di un \textit{controllo}
+che indica uno o più stati ad ogni dato istante. La computazione di un automa finito consiste nel cambiamento
+di stati durante la lettura dell'input. L'input di un automa finito è una parola scritta su un nastro, e la
+progressiva lettura delle lettere (grazie a una testina che si muove da sinistra verso destra) determina il
+potenziale cambiamento di stati della macchina. La computazione di un automa finito in relazione a una
+parola in input termina sempre, ma l'esito della computazione può essere quello di accettare o non accettare
+la parola in input in funzione dello stato della macchina alla fine della computazione.
+\\
+\\
+Esistono più di un tipo di automa finito. Questo materiale descrive gli \textit{automi finiti deterministici}
+e gli \textit{automi finiti non-deterministici}.
+
+\subsection{Automi finiti deterministici}
+...
 
 
 \newpage
