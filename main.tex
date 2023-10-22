@@ -309,8 +309,28 @@ la parola in input in funzione dello stato della macchina alla fine della comput
 Esistono più di un tipo di automa finito. Questo materiale descrive gli \textit{automi finiti deterministici}
 e gli \textit{automi finiti non-deterministici}.
 
+
 \subsection{Automi finiti deterministici}
-...
+Un \textit{automa finito deterministico} è una quintupla \mbox{$(Q, \Sigma, \delta, q_0, F)$} dove:
+
+\mbox{$Q$} è un insieme finito di stati (da qui la parola \textit{finito})
+
+\mbox{$\Sigma$} è un alfabeto (finito)
+
+\mbox{$q_0 \in Q$} è uno stato iniziale
+
+\mbox{$\delta \colon Q \times \Sigma \to Q$} è una \textit{funzione di transizione}
+
+\mbox{$F \subseteq Q$} è un insieme di \textit{stati finali} (o stati \textit{accettanti})
+\\
+\\
+Considerato che la definizione di un DFA è pedissequa e di difficile lettura, si presentano modalità alternative di definizione di un DFA:
+
+\begin{itemize}
+    \item diagramma di stato (o diagramma di transizione)
+    \item tabella di transizione, cioè una rappresentazione tabellare della funzione di transizione \mbox{$\delta$}, insieme al'indicazione di stati iniziale e stati finali (indicando la riga dello stato iniziale con una freccia e le righe degli stati finali con delle stelline)
+\end{itemize}
+
 
 
 \newpage
