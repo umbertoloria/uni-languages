@@ -395,9 +395,9 @@ Passo base
 \mbox{$\hat\delta(q, \epsilon) = q, \forall q \in Q$}
 \\
 \\
-Passo ricorsivo \mbox{$\forall q \in Q, w \in \Sigma^*, \alpha \in \Sigma$}
+Passo ricorsivo \mbox{$\forall q \in Q, w \in \Sigma^*, a \in \Sigma$}
 \\
-\mbox{$\hat\delta(q, w\alpha) = \delta(\hat\delta(q, w), \alpha)$}
+\mbox{$\hat\delta(q, wa) = \delta(\hat\delta(q, w), a)$}
 \\
 \\
 La \textit{funzione di transizione estesa} \mbox{$\hat\delta$} (chiamata "\textit{delta cappello}") fornisce
@@ -409,7 +409,6 @@ input, e si ottiene come risultato uno stato finale, allora la parola in input �
 Quindi è possibile riscrivere la definizione di linguaggio riconosciuto come segue.
 \\
 \mbox{$L(A) = \{ w | \hat\delta(q_0, w) \in F \}$}.
-
 
 
 
@@ -432,6 +431,27 @@ Prendendo in considerazione l'automa \mbox{$A_1$} in \textbf{3.1.1} è possibile
 \mbox{$ \hat\delta(q_1, aaaaaa) = \delta( \hat\delta(q_1, aaaaa) , a) = \delta( q_2 , a) = q_1 \not\in F $}
 \\
 \mbox{$ \hat\delta(q_1, aaaaaaa) = \delta( \hat\delta(q_1, aaaaaa) , a) = \delta( q_1 , a) = q_2 \in F $}
+
+
+
+\subsubsection{Estensione di una funzione}
+Siano \mbox{$f \colon B \to T, g \colon A \to T$} due funzioni con \mbox{$ B \subseteq A $}.
+\\
+\mbox{$ g \text{ estensione di } f \overset{\text{def}}{\Leftrightarrow} g(x) = f(x), \forall x \in B $}
+\\
+\\
+Allo stesso modo, sia \mbox{$h \colon C \to T$} una funzione con \mbox{$ C \subseteq B $}.
+\\
+\mbox{$ h \text{ riduzione di } f \overset{\text{def}}{\Leftrightarrow} h(x) = f(x), \forall x \in C $}
+\\
+\\
+Banalmente, la funzione di transizione estesa \mbox{$ \hat\delta $} è una estensione della funzione di
+transizione \mbox{$ \delta $} dato che \mbox{$ \Sigma \subseteq \Sigma^* $}
+(quindi \mbox{$ (Q \times \Sigma) \subseteq (Q \times \Sigma^*) $}) e:
+\\
+\mbox{$ \forall (q, a) \in Q \times \Sigma $}
+\\
+\mbox{$ \hat\delta(q, a) = \delta(\hat\delta(q, \epsilon), a) = \delta(q, a) $}
 
 
 
