@@ -26,7 +26,7 @@
 
 \tableofcontents{}
 \newpage
-\section{Alfabeti e linguaggi}
+\section{Linguaggi formali}
 
 Un \textit{alfabeto} \mbox{$\Sigma$} è un insieme \underline{finito} di elementi (lettere, simbolio caratteri).
 \\
@@ -68,7 +68,7 @@ Un linguaggio è \textit{finito} se contiene un numero finito di parole.
 Un linguaggio è \textit{non finito} se contiene un numero infinito di parole.
 
 
-\section{Parole}
+\subsection{Parole}
 
 La lunghezza di una parola \mbox{$w$} è definita con \mbox{$|w|$}. Esempio: \mbox{$|ab| = 2$}.
 \\
@@ -298,6 +298,59 @@ L'inversione di una parola ha precedenza rispetto alla concatenazione.
 
 
 \newpage
+
+
+\subsection{Operazioni unari sui linguaggi}
+
+
+\subsubsection{Riflessione di un linguaggio}
+
+Sia \mbox{$ L $} un linguaggio su alfabeto \mbox{$ \Sigma $}.
+\\
+\\
+\mbox{$ L^R = \{ w^R | w \in L \} $}
+\\
+\\
+Esempio:
+\\
+\mbox{$ L_1 = \{ aa, aaa \} = L_1^R $}
+\\
+\mbox{$ L_2 = \{ aab, aba \} \neq \{ baa, aba \} L_2^R $}
+\\
+\mbox{$ L_3 = \{ w | |w|_a = |w|_b \} = L_3^R $}
+
+
+
+\subsubsection{Prefissi propri di un linguaggio}
+
+Sia \mbox{$ L $} un linguaggio su alfabeto \mbox{$ \Sigma $}.
+\\
+\\
+\mbox{$ Prefissi(L) = \{ w | w = xz \land x \in L \land z \neq \epsilon \} $}
+
+\mbox{$ = \{ w | w \text{ prefisso proprio di una parola in } L \} $}
+\\
+\\
+\mbox{$ L \text{ prefisso } \overset{\text{def}}{\Leftrightarrow}
+L \cap Prefissi(L) = \emptyset $}
+\\
+\\
+Esempio:
+\\
+\mbox{$ L_1 \text{ non prefisso } \colon Prefissi(L_1) = \{ \epsilon, a, aa \} $}
+\\
+\mbox{$ L_2 \text{ prefisso } \colon Prefissi(L_2) = \{ \epsilon, a, aa, ab \} $}
+\\
+\mbox{$ L_3 \text{ non prefisso } \colon Prefissi(L_3) = \{ \epsilon, a, aa, ab \} $}
+
+
+
+\section{Espressioni regolari}
+
+...
+
+
+
 \section{Automi finiti}
 
 La teoria degli automi nasce negli anni '30 grazie al lavoro di matematici tra cui Turing, Church, Kleene
