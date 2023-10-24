@@ -297,9 +297,6 @@ L'inversione di una parola ha precedenza rispetto alla concatenazione.
 \mbox{$ (ab)^R = ba \neq ab = ab^R $}
 
 
-\newpage
-
-
 \subsection{Operazioni unari sui linguaggi}
 
 
@@ -343,6 +340,62 @@ Esempio:
 \\
 \mbox{$ L_3 \text{ non prefisso } \colon Prefissi(L_3) = \{ \epsilon, a, aa, ab \} $}
 
+
+
+\subsubsection{Dimostrazione \mbox{$ a^nb^n $} linguaggio prefisso}
+
+\mbox{$ L = \{ a^nb^n | n \in \mathbf{N} \} $}
+\\
+\begin{math}
+L \cap Prefissi(L) = \emptyset
+\Leftrightarrow
+\begin{cases}
+w \in L \Rightarrow w \not \in Prefissi(L) \\
+w \in Prefissi(L) \Rightarrow w \not \in L
+\end{cases}
+\end{math}
+\\
+\\
+\mbox{$ (i) \text{ } l \in L \Rightarrow l \not \in Prefissi(L) $}
+\\
+\mbox{$ l = a^nb^n, n \in \mathbf{N} $}
+\\
+Per assurdo: \mbox{$ l \in Prefissi(L) \Rightarrow \exists x \in L \colon x = lz, z \neq \epsilon $}
+
+assurdo, perché \mbox{$ x = a^nb^nz \not \in L $}
+\\
+\\
+\mbox{$ (ii) \text{ } l \in Prefissi(L) \Rightarrow l \not \in L $}
+\\
+\mbox{$ \exists x \in L \colon x = lz, z \neq \epsilon $}
+\\
+\mbox{$ x \in L \Rightarrow x = a^nb^n, n \in \mathbf{N} $}
+\\
+\\
+\begin{math}
+\begin{cases}
+x = lz \\
+x = a^nb^n
+\end{cases}
+\Rightarrow
+( l = \epsilon ) \lor ( l = a^ib^j, i \in \mathbf{N}, j \in \mathbf{N_0} \colon i > j )
+\Rightarrow
+l \not \in L
+\end{math}
+\\
+\\
+\\
+Per info:
+\\
+\mbox{$ Prefissi(L) = \{ a^nb^m | n, m \in \mathbf{N}, n > m \} \cup \{ a^k | k \in \mathbf{N_0} \}  $}
+
+
+\newpage
+
+
+\subsubsection{Chiusura di Kleene}
+
+...
 
 
 \section{Espressioni regolari}
