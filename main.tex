@@ -28,7 +28,7 @@
 \newpage
 \section{Linguaggi formali}
 
-Un \textit{alfabeto} \mbox{$\Sigma$} è un insieme \underline{finito} di elementi (lettere, simbolio caratteri).
+Un \textit{alfabeto} \mbox{$\Sigma$} è un insieme \underline{finito} di elementi (lettere, simboli o caratteri).
 \\
 Sia \mbox{$\Sigma=\{\sigma_0 ... \sigma_k\}$} alfabeto di \begin{math}k\end{math} simboli con cardinalità \mbox{$|\Sigma|=k$}.
 \\
@@ -70,7 +70,8 @@ Un linguaggio è \textit{non finito} se contiene un numero infinito di parole.
 
 \subsection{Parole}
 
-La lunghezza di una parola \mbox{$w$} è definita con \mbox{$|w|$}. Esempio: \mbox{$|ab| = 2$}.
+La \textit{lunghezza} di una parola \mbox{$w$} è definita con \mbox{$|w|$}.
+Esempio: \mbox{$|ab| = 2$}.
 \\
 \\
 La parola vuota si indica con \mbox{$\epsilon$}. Essa è l'elemento neutro dell'insieme delle parole ed è l'unica
@@ -244,6 +245,22 @@ w \neq x
 \end{math}
 
 
+
+\subsection{Ripetizioni di parola}
+
+Siano \mbox{$ w \in \Sigma^*, m \in \mathbf{N_0} $}:
+\\
+\mbox{$ w^m = w ... w \text{ m volte} = \Pi_1^m w $}
+\\
+\\
+Definizione ricorsiva:
+\\
+Passo base: \mbox{$ w^0 = \epsilon $}
+\\
+Passo ricorsivo: \mbox{$ w^m = w^{m-1} w, \forall m \in \mathbf{N} $}
+
+
+
 \subsection{Inversa di una parola}
 
 Sia \mbox{$w = w_1...w_k$} con \mbox{$k \in \mathbf{N}$}.
@@ -253,13 +270,9 @@ La parola inversa è \mbox{$w^R = w_k...w_1$}
 \\
 Definizione ricorsiva:
 \\
-Passo base:
+Passo base: \mbox{$\epsilon^R = \epsilon$}
 \\
-\mbox{$\epsilon^R = \epsilon$}
-\\
-Passo ricorsivo:
-\\
-Sia \mbox{$w = x \sigma$} con \mbox{$x \in \Sigma^*, \sigma \in \Sigma$}
+Passo ricorsivo: Sia \mbox{$w = x \sigma$} con \mbox{$x \in \Sigma^*, \sigma \in \Sigma$}
 \\
 \mbox{$w^R = (x \sigma)^R = \sigma w^R$}
 \\
@@ -390,17 +403,24 @@ Per info:
 \mbox{$ Prefissi(L) = \{ a^nb^m | n, m \in \mathbf{N}, n > m \} \cup \{ a^k | k \in \mathbf{N_0} \}  $}
 
 
-\newpage
-
 
 \subsubsection{Chiusura di Kleene}
 
 ...
 
 
+
+\newpage
+
+
+
 \section{Espressioni regolari}
 
 ...
+
+
+
+\newpage
 
 
 
