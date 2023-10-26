@@ -426,6 +426,60 @@ Passo base: \mbox{$ \epsilon \in \Sigma^* $}
 Passo ricorsivo: \mbox{$ w \in \Sigma^*, x \in \Sigma \colon wx \in \Sigma^* $}
 
 
+\newpage
+
+
+\subsection{Operazioni binarie sui linguaggi}
+
+
+\subsubsection{Prodotto (o concatenazione) di linguaggi}
+
+Siano \mbox{$ L' $} e \mbox{$ L'' $} linguaggi su \mbox{$ \Sigma $}.
+\\
+\\
+\mbox{$ L' L'' = \{ w | w = xy, x \in L', y \in L'' \} $}
+\\
+\\
+Esempi:
+
+\mbox{$ L_1 = \{ a^2, a^3 \} $}, \mbox{$ L_2 = \{ aba, aab \} $}
+
+\mbox{$ L_1 L_2 = \{ a^3ba, a^4b, a^4ba, a^5b \} $}.
+\\
+
+\mbox{$ L_p = \{ a^i | i \text{ pari} \} $}, \mbox{$ L_d = \{ b^ja | j \text{ dispari} \} $}
+
+\mbox{$ L_p L_d = \{ a^ib^ja | i \text{ pari}, j \text{ dispari} \} $}.
+
+
+
+\subsubsection{Potenza di un linguaggio}
+
+Sia \mbox{$ L $} linguaggio su \mbox{$ \Sigma $}.
+\\
+\\
+Definizione ricorsiva.
+\\
+Passo base: \mbox{$ L^0 = \{ \epsilon \} $},
+\\
+Passo ricorsivo: \mbox{$ L^k = L^{k-1} L, \forall k \in \mathbf{N} $},
+\\
+\\
+Definizione diretta.
+\\
+\mbox{$ L^k = \{ w_1...w_k | w_i \in L, \forall i \in \mathbf{N} \colon 1 \le i \le k\} $}, \mbox{$ \forall k \in \mathbf{N} $}
+\\
+\mbox{$ L^0 = \{ \epsilon \} $}
+\\
+\\
+\textit{Nota}: In generale, la potenza n-esima di un linguaggio non coincide
+con il linguaggio delle potenze n-esime delle parole del dato linguaggio.
+Vale quanto segue.
+\\
+\mbox{$ \{ w^n | w \in L \} \subseteq L^n $}
+
+
+
 
 \newpage
 
