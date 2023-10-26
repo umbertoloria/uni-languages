@@ -345,6 +345,12 @@ Sia \mbox{$ L $} un linguaggio su alfabeto \mbox{$ \Sigma $}.
 L \cap Prefissi(L) = \emptyset $}
 \\
 \\
+Oppure, in modo alternativo:
+\\
+\mbox{$ L \text{ prefisso } \overset{\text{def}}{\Leftrightarrow}
+L / Prefissi(L) = L $}
+\\
+\\
 Esempio:
 \\
 \mbox{$ L_1 \text{ non prefisso } \colon Prefissi(L_1) = \{ \epsilon, a, aa \} $}
@@ -353,6 +359,8 @@ Esempio:
 \\
 \mbox{$ L_3 \text{ non prefisso } \colon Prefissi(L_3) = \{ \epsilon, a, aa, ab \} $}
 
+
+\newpage
 
 
 \subsubsection{Dimostrazione \mbox{$ a^nb^n $} linguaggio prefisso}
@@ -406,7 +414,16 @@ Per info:
 
 \subsubsection{Chiusura di Kleene}
 
-...
+Sia \mbox{$ \Sigma $} un alfabeto.
+\\
+\mbox{$ \Sigma^* = \cup_{n \in \mathbf{N_0}}{\Sigma^n} $}
+\\
+\\
+Definizione ricorsiva:
+\\
+Passo base: \mbox{$ \epsilon \in \Sigma^* $}
+\\
+Passo ricorsivo: \mbox{$ w \in \Sigma^*, x \in \Sigma \colon wx \in \Sigma^* $}
 
 
 
