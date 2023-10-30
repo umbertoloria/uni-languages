@@ -369,22 +369,22 @@ Esempio:
 L \cap Prefissi(L) = \emptyset
 \Leftrightarrow
 \begin{cases}
-w \in L \Rightarrow w \not \in Prefissi(L) \\
-w \in Prefissi(L) \Rightarrow w \not \in L
+w \in L \Rightarrow w \not\in Prefissi(L) \\
+w \in Prefissi(L) \Rightarrow w \not\in L
 \end{cases}
 \end{math}
 \\
 \\
-\mbox{$ (i) \text{ } l \in L \Rightarrow l \not \in Prefissi(L) $}
+\mbox{$ (i) \text{ } l \in L \Rightarrow l \not\in Prefissi(L) $}
 \\
 \mbox{$ l = a^nb^n, n \in \mathbf{N} $}
 \\
 Per assurdo: \mbox{$ l \in Prefissi(L) \Rightarrow \exists x \in L \colon x = lz, z \neq \epsilon $}
 
-assurdo, perché \mbox{$ x = a^nb^nz \not \in L $}
+assurdo, perché \mbox{$ x = a^nb^nz \not\in L $}
 \\
 \\
-\mbox{$ (ii) \text{ } l \in Prefissi(L) \Rightarrow l \not \in L $}
+\mbox{$ (ii) \text{ } l \in Prefissi(L) \Rightarrow l \not\in L $}
 \\
 \mbox{$ \exists x \in L \colon x = lz, z \neq \epsilon $}
 \\
@@ -399,7 +399,7 @@ x = a^nb^n
 \Rightarrow
 ( l = \epsilon ) \lor ( l = a^ib^j, i \in \mathbf{N}, j \in \mathbf{N_0} \colon i > j )
 \Rightarrow
-l \not \in L
+l \not\in L
 \end{math}
 \\
 \\
@@ -782,11 +782,11 @@ Dimostrazione 1: \mbox{$ a^{n + 1} \in L(A_p) \Rightarrow n + 1 \text{ pari} $}.
 \\
 \begin{math}
 a^{n + 1} \in L(A_p)
-\Rightarrow \hat\delta(p, a^{n + 1}) = q
-\Rightarrow \hat\delta(p, a^n) = p
-\Rightarrow a^n \in L(A_p) \\
-\Rightarrow \text{ (per ipotesi induttiva) } n \text{ pari}
-\Rightarrow n + 1 \text{ dispari}
+\Rightarrow \hat\delta(p, a^{n + 1}) = p \in F_{A_p}
+\Rightarrow \hat\delta(p, a^n) = q \not\in F_{A_p}
+\Rightarrow a^n \not\in L(A_p) \\
+\Rightarrow \text{ (per ipotesi induttiva) } n \text{ dispari}
+\Rightarrow n + 1 \text{ pari}
 \end{math}
 \\
 \\
@@ -797,7 +797,7 @@ n + 1 \text{ pari}
 \Rightarrow n \text{ dispari} \\
 \Rightarrow \text{ (per ipotesi induttiva) } a^n \not\in L(A_p)
 \Rightarrow \hat\delta(p, a^n) = q \\
-\Rightarrow \hat\delta(p, a^{n + 1}) = \delta(\hat\delta(p, a^n), a) = \delta(q, a) = p
+\Rightarrow \hat\delta(p, a^{n + 1}) = \delta(\hat\delta(p, a^n), a) = \delta(q, a) = p \in F_{A_p}
 \Rightarrow a^{n + 1} \in L(A_p)
 \end{math}
 \\
