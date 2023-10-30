@@ -753,6 +753,60 @@ Si consideri il seguente automa \mbox{$A_5$}.
 
 
 \newpage
+Si intende dimostrare che
+\mbox{$ L(A_p) = \{ a^n | n \text{ pari} \} $}. Ecco una
+rappresentazione grafica dell'automa \mbox{$A_p$}.
+\\
+\begin{tikzpicture}
+\node[state, initial, accepting] (p) {$p$};
+\node[state, right of=p] (q) {$q$};
+\draw
+(p) edge[bend left, above] node{a} (q)
+(q) edge[bend left, below] node{a} (p);
+\end{tikzpicture}
+\\
+Sarà usato il principio di induzione per dimostrare la proposizione
+\\
+\mbox{$ P(n) \colon a^n \in L(A_p) \Leftrightarrow n \text{ pari} $}.
+\\
+\\
+Passo base: \mbox{$ 0 \text{ pari}, a^0 = \epsilon \in L(A_p)
+\text{ dato che }
+\hat\delta(p, \epsilon) = p$}
+\\
+\\
+Passo induttivo: dimostrare \mbox{$ P(n) \Rightarrow P(n + 1) $}.
+\\
+\\
+Dimostrazione 1: \mbox{$ a^{n + 1} \in L(A_p) \Rightarrow n + 1 \text{ pari} $}.
+\\
+\begin{math}
+a^{n + 1} \in L(A_p)
+\Rightarrow \hat\delta(p, a^{n + 1}) = q
+\Rightarrow \hat\delta(p, a^n) = p
+\Rightarrow a^n \in L(A_p) \\
+\Rightarrow \text{ (per ipotesi induttiva) } n \text{ pari}
+\Rightarrow n + 1 \text{ dispari}
+\end{math}
+\\
+\\
+Dimostrazione 2: \mbox{$ n + 1 \text{ pari} \Rightarrow a^{n + 1} \in L(A_p) $}.
+\\
+\begin{math}
+n + 1 \text{ pari}
+\Rightarrow n \text{ dispari} \\
+\Rightarrow \text{ (per ipotesi induttiva) } a^n \not\in L(A_p)
+\Rightarrow \hat\delta(p, a^n) = q \\
+\Rightarrow \hat\delta(p, a^{n + 1}) = \delta(\hat\delta(p, a^n), a) = \delta(q, a) = p
+\Rightarrow a^{n + 1} \in L(A_p)
+\end{math}
+\\
+\\
+Per dimostrare solo una direzione di \mbox{$ P(n) $} suggerisco di usare
+l'induzione forte.
+
+
+\newpage
 \subsubsection{Linguaggi regolari}
 
 Sia \mbox{$ L $} linguaggio su \mbox{$ \Sigma $}.
