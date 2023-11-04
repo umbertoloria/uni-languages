@@ -832,6 +832,7 @@ e intersezione.
 
 
 
+\newpage
 \subsubsection{Chiusura dei linguaggi regolari rispetto al complemento}
 
 La classe \mbox{$ REG $} è chiusa rispetto all'operazione complemento. Sia \mbox{$ L \in REG $} e
@@ -840,9 +841,83 @@ La classe \mbox{$ REG $} è chiusa rispetto all'operazione complemento. Sia \mbo
 \mbox{$ \bar{L} \in REG $}.
 \\
 \\
-Dimostrazione:
+Sia \mbox{$ A = (Q, \Sigma, \delta, q_0, F_A) $} DFA. È possibile costruire l'\textit{automa complemento}
+(o automa complementare) \mbox{$ \bar{A} \colon L(\bar{A}) = \Sigma^* / L(A) $} come segue.
 \\
-...
+\\
+\mbox{$ \bar{A} = (Q, \Sigma, \delta, q_0, F_{\bar{A}}) $}
+
+\mbox{$ F_{\bar{A}} = Q / F_A $}
+\\
+\\
+Dimostrazione \mbox{$ L(\bar{A}) = \Sigma^* / L(A) $}:
+\\
+Prima parte (\mbox{$ \subseteq $}):
+
+\mbox{$ w \in L(\bar{A}) $}
+
+\mbox{$ \Rightarrow \hat\delta(q_0, w) \in F_{\bar{A}} $}
+
+\mbox{$ \Rightarrow \hat\delta(q_0, w) \in Q / F_A $}
+
+\mbox{$ \Rightarrow \hat\delta(q_0, w) \not\in F_A $}
+
+\mbox{$ \Rightarrow w \not\in L(A) $}
+\\
+Seconda parte (\mbox{$ \supseteq $}):
+
+\mbox{$ w \in \Sigma^* / L(A) $}
+
+\mbox{$ \Rightarrow w \not\in L(A) $}
+
+\mbox{$ \Rightarrow \hat\delta(q_0, w) \not\in F_A $}
+
+\mbox{$ \Rightarrow \hat\delta(q_0, w) \in Q / F_A $}
+
+\mbox{$ \Rightarrow \hat\delta(q_0, w) \in F_{\bar{A}} $}
+
+\mbox{$ \Rightarrow w \in L(\bar{A}) $}
+\\
+\\
+Esempio:
+\\
+Sia \mbox{$ A $} il seguente DFA.
+\\
+\begin{tikzpicture}
+\node[state, initial]                 (q0) {$ q_0 $};
+\node[state, right of=q0]             (q1) {$ q_1 $};
+\node[state, right of=q1]             (q11) {$ q_{11} $};
+\node[state, accepting, right of=q11] (q110) {$ q_{110} $};
+\draw
+(q0)   edge[loop above]       node{0}   (q0)
+(q0)   edge[above]            node{1}   (q1)
+(q1)   edge[bend left, above] node{0}   (q0)
+(q1)   edge[above]            node{1}   (q11)
+(q11)  edge[loop above]       node{1}   (q1)
+(q11)  edge[above]            node{0}   (q110)
+(q110) edge[loop above]       node{0,1} (q110)
+;
+\end{tikzpicture}
+\\
+\\
+Si noti che \mbox{$ L(A) = \Sigma^*110\Sigma^* $}. In seguito si propone l'automa complementare
+\mbox{$ \bar{A} $} tale che \mbox{$ L(\bar{A}) = \Sigma^* / L(A) $}.
+\\
+\begin{tikzpicture}
+\node[state, accepting, initial]                 (q0) {$ q_0 $};
+\node[state, accepting, right of=q0]             (q1) {$ q_1 $};
+\node[state, accepting, right of=q1]             (q11) {$ q_{11} $};
+\node[state, right of=q11] (q110) {$ q_{110} $};
+\draw
+(q0)   edge[loop above]       node{0}   (q0)
+(q0)   edge[above]            node{1}   (q1)
+(q1)   edge[bend left, above] node{0}   (q0)
+(q1)   edge[above]            node{1}   (q11)
+(q11)  edge[loop above]       node{1}   (q1)
+(q11)  edge[above]            node{0}   (q110)
+(q110) edge[loop above]       node{0,1} (q110)
+;
+\end{tikzpicture}
 
 
 
@@ -928,6 +1003,11 @@ Ecco il loro automa unione \mbox{$ A_{12} $}.
 \end{tikzpicture}
 \\
 Infine, \mbox{$ L(A_{12}) = L(A_1) \cup L(A_2) = \{ w | |w|_1 \in \mathbf{N_d} \lor |w|_0 \in \mathbf{N_p} \} $}.
+\\
+\\
+Dimostrazione:
+\\
+...
 
 
 
