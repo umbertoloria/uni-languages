@@ -846,9 +846,88 @@ Dimostrazione:
 
 
 
+\newpage
 \subsubsection{Chiusura dei linguaggi regolari rispetto a unione e intersezione}
 
-...
+Siano \mbox{$ L_1, L_2 \in REG $},
+\mbox{$ A_1 = (Q_1, \Sigma, \delta_1, p_1, F_1) $} e
+\mbox{$ A_2 = (Q_2, \Sigma, \delta_2, q_1, F_2) $}
+DFA tali che \mbox{$ L_1 = L(A_1) $} e
+\mbox{$ L_2 = L(A_2) $}. Vale che:
+\\
+
+\mbox{$ \exists A \text{ DFA} \colon L(A) = L_1 \cup L_2 $} (\mbox{$ A $} è detto automa unione di \mbox{$ A_1 $} e \mbox{$ A_2 $})
+
+\mbox{$ \exists B \text{ DFA} \colon L(B) = L_1 \cap L_2 $} (\mbox{$ B $} è detto automa intersezione di \mbox{$ A_1 $} e \mbox{$ A_2 $})
+\\
+\\
+Costruzione automa unione:
+\\
+\mbox{$ A = (Q, \Sigma, \delta, (p_1, q_1), F) $}
+
+\mbox{$ Q = Q_1 \times Q_2 $}
+
+\mbox{$ F = F_1 \times Q_2 \cup Q_1 \times F_2 $}
+
+\mbox{$ \delta( (p, q), \sigma ) = ( \delta_1(p, \sigma), \delta_2(q, \sigma) ) $}
+\\
+\\
+Costruzione automa intersezione:
+\\
+
+Identico all'automa unione, differisce solo in \mbox{$ F = F_1 \times F_2 $}.
+\\
+\\
+Esempio:
+\\
+Siano \mbox{$ A_1 $} e \mbox{$ A_2 $} i seguenti DFA.
+\\
+\begin{tikzpicture}
+\node[state, initial]                 (q_1) {$q_1$};
+\node[state, accepting, right of=q_1] (q_2) {$q_2$};
+\draw
+(q_1)   edge[loop above]       node{0} (q_1)
+(q_1)   edge[bend left, above] node{1} (q_2)
+(q_2)   edge[bend left, above] node{1} (q_1)
+(q_2)   edge[loop above]       node{0} (q_2);
+\end{tikzpicture}
+\begin{tikzpicture}
+\node[state, initial, accepting] (p_1) {$p_1$};
+\node[state, right of=q_1]       (p_2) {$p_2$};
+\draw
+(p_1)   edge[loop above]       node{1} (p_1)
+(p_1)   edge[bend left, above] node{0} (p_2)
+(p_2)   edge[bend left, above] node{0} (p_1)
+(p_2)   edge[loop above]       node{1} (p_2);
+\end{tikzpicture}
+\\
+\\
+Si noti che \mbox{$ L(A_1) = \{ w | |w|_1 \in \mathbf{N_d} \} $}, mentre
+\mbox{$ L(A_2) = \{ w | |w|_0 \in \mathbf{N_p} \} $}.
+Ecco il loro automa unione \mbox{$ A_{12} $}.
+\\
+\\
+\begin{tikzpicture}
+\node[state, initial, accepting]       (q1p1) {$ (q_1, p_1) $};
+\node[state, right of=q1p1]            (q1p2) {$ (q_1, p_2) $};
+\node[state, accepting, below of=q1p1] (q2p1) {$ (q_2, p_1) $};
+\node[state, accepting, right of=q2p1] (q2p2) {$ (q_2, p_2) $};
+\draw
+(q1p1)   edge[above] node{0} (q1p2)
+(q1p2)   edge[above] node{0} (q1p1)
+
+(q1p2)   edge[right] node{1} (q2p2)
+(q2p2)   edge[right] node{1} (q1p2)
+
+(q2p2)   edge[above] node{0} (q2p1)
+(q2p1)   edge[above] node{0} (q2p2)
+
+(q2p1)   edge[left]  node{1} (q1p1)
+(q1p1)   edge[left]  node{1} (q2p1)
+;
+\end{tikzpicture}
+\\
+Infine, \mbox{$ L(A_{12}) = L(A_1) \cup L(A_2) = \{ w | |w|_1 \in \mathbf{N_d} \lor |w|_0 \in \mathbf{N_p} \} $}.
 
 
 
